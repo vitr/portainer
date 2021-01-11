@@ -21,3 +21,12 @@ As per now (Aug 2020) you can use native Docker Desktop UI to manage containers 
 
 ### Windows notes
 Run above commands in Windows PowerShell as Administrator.
+
+https://www.portainer.io/2020/08/portainer-ce-2-0-what-to-expect/
+
+docker pull portainer/portainer-ce
+
+docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+
+
+
