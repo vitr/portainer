@@ -1,17 +1,34 @@
-# Portainer https://www.portainer.io/
+
+# Portainer 
+https://www.portainer.io/
 Portainer simplifies Docker container management.
 
-The fastest way to run Portainer:
+### Install Portainer
+
 ```
 docker volume create portainer_data
-docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+
+docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
 ```
 
-Access portainer at your localhost:
+2020 Update: I recommend using mkcert to generate local certificates. You can do everything below by just running the commands `` and ``. Keep it simple!
 
-# http://localhost:9000/#/home
 
-To update Portainer stop and remove the current image: 
+### Access portainer at your localhost:
+# https://localhost:9443
+### Install ssl certificate for localhost
+https://github.com/FiloSottile/mkcert
+```
+brew install mkcert
+mkcert -install
+mkcert localhost 127.0.0.1 ::1
+```
+
+
+
+### Update Portainer 
+stop and remove the current image: 
+
 ```
 docker stop portainer && docker rm portainer
 docker pull portainer/portainer
